@@ -6,12 +6,12 @@ The developer has gone on vacation, so you will have to take over and continue h
 
 Currently, the filter system is not working. You will try to improve/redo this filter system.
 
-Preliminary Tasks :
+## Preliminary Tasks
 
 - add one recipe in the recipe database (RecipeData.ts)
 - add 2 new tags and affect these tags to the recipes (it could be any type of tag)
 
-Features :
+## Features to add
 
 - add a feature to allow to filter recipes by clicking on a tag (the behavior must work if you click on a menu tag or a recipe tag).
 - display the selected tags in the header and hide those that are not selected
@@ -20,7 +20,11 @@ Features :
 
 To develop this feature you can use a state, a context or any other solution you like.
 
-Bonus :
+You are encouraged to refactor the existing code before adding your own, as you would do if this was a real task in real life.
+
+Please commit as frequently as possible to make the review easier.
+
+## Bonus
 
 - You can do whatever you want to improve the experience on this little app.
 
@@ -30,4 +34,5 @@ To run this project you will need to install yarn and npm
 
 # Run the project
 
-You can run the project using : yarn start
+To Install dependencies & node modules, run : `yarn`
+To launch the project, run : `yarn start`
