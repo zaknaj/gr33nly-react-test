@@ -1,7 +1,8 @@
-import { ListOfRecipes } from "./RecipeType";
 import Recipe from "./Recipe";
+import { useRecipes } from "../store";
 
-export const Recipes = ({ recipes }: { recipes: ListOfRecipes }) => {
+export const Recipes = ({}) => {
+  const recipes = useRecipes();
   return (
     <div
       style={{

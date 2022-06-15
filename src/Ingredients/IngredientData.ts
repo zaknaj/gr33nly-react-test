@@ -71,3 +71,18 @@ export const cucumber: IngredientType = {
   type: "vegetables",
   unit: "unit",
 };
+
+export const ingredientsList = [
+  chocolate,
+  sugar,
+  butter,
+  flour,
+  pear,
+  egg,
+  redFruits,
+  almondPowder,
+  cream,
+  salad,
+  feta,
+  cucumber,
+];
