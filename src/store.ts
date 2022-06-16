@@ -10,7 +10,6 @@ import { allRecipes } from "./Recipes/RecipeData";
 type StateType = {
   filters: FilterType[];
   toggleFilter: (filter: FilterType) => void;
-  clearFilters: () => void;
   toggleFilterLogic: (filter: FilterType) => void;
 };
 
@@ -36,7 +35,6 @@ export const useStore = create<StateType>((set) => ({
       }
       return { filters: [...state.filters, filter] };
     }),
-  clearFilters: () => set({ filters: [] }),
   toggleFilterLogic: (filter: FilterType) =>
     set((state) => {
       const filterIndex = state.filters.findIndex(
