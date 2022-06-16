@@ -118,7 +118,7 @@ body {
   padding: 8px;
   cursor: pointer;
   border-radius: 5px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .step.checked {
@@ -127,10 +127,80 @@ body {
   text-decoration: line-through;
 }
 
+.step.checked .ingredient {
+  text-decoration: line-through;
+  background: #c7edc7;
+  border-bottom: 1px solid #c7edc7;
+}
+
+.step:last-child {
+  margin-bottom: 0px;
+  border-bottom: 1px solid transparent;
+}
+
 .step:not(.checked):hover {
   background: #f5f5f5;
 }
 
 .step:not(.checked):active {
   background: #ddd;
+}
+
+.ingredient {
+  display: inline-block;
+  background: #eee;
+  border-radius: 8px;
+  border-bottom: 1px solid #ddd;
+  padding: 4px 8px;
+  margin: 4px;
+}
+
+.filters {
+  display: flex;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 100px;
+  padding: 2px 4px;
+  padding-right: 8px;
+  margin-right: 8px;
+  cursor: pointer;
+  box-shadow: 0px 2px 3px rgb(0 0 0 / 7%);
+}
+
+.filter button {
+  border-radius: 100px;
+  border: 0;
+  outline: none;
+  background: transparent;
+  padding: 5px;
+  cursor: pointer;
+  display: block;
+  margin-right: 8px;
+}
+
+.filter button:hover {
+  background: #f5f5f5;
+}
+
+.filter button:active {
+  background: #ddd;
+}
+
+.filters-container {
+  display: flex;
+}
+
+.filters-container select {
+  border-radius: 100px;
+  border: 0;
+  padding: 0 8px;
+  height: 32px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0px 2px 3px rgb(0 0 0 / 7%);
 }

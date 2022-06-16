@@ -7,7 +7,7 @@ export const IngredientWithQuantity = ({
   ingredientWithQuantity: IngredientWithQuantityType;
 }) => {
   return (
-    <div>
+    <div className="ingredient">
       {ingredientWithQuantity.quantity}
       {ingredientWithQuantity.unit}
       &nbsp;

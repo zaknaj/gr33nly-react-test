@@ -1,17 +1,13 @@
 import { useMemo } from "react";
 import { ingredientsList } from "../Ingredients/IngredientData";
-import { getFilterIdentifier, useStore } from "../store";
+import { useStore } from "../store";
 import { tagList } from "../Tags/TagData";
-import { FilterLogicType, FilterType, FilterTypesType } from "./FilterType";
-
-const getFilterLabel = (f: FilterType) => {
-  return f.type === FilterTypesType.Ingredient ? f.value.name : f.value.name.fr;
-};
+import { Filter } from "./Filter";
+import { FilterLogicType, FilterTypesType } from "./FilterType";
 
 export const Filters = () => {
   const filters = useStore((store) => store.filters);
   const toggleFilter = useStore((store) => store.toggleFilter);
-  const toggleFilterLogic = useStore((store) => store.toggleFilterLogic);
 
   const handleSelectedFilter = (filterString: string) => {
     let [type, val] = filterString.split("__");
@@ -62,16 +58,12 @@ export const Filters = () => {
   }, [filters]);
 
   return (
-    <div>
-      <h2>filtres</h2>
-      {filters.map((f) => (
-        <div className="filter" key={getFilterIdentifier(f)}>
-          <button onClick={() => toggleFilterLogic(f)}>
-            {f.logic === FilterLogicType.Include ? "✅" : "❌"}
-          </button>
-          <div onClick={() => toggleFilter(f)}>{getFilterLabel(f)}</div>
-        </div>
-      ))}
+    <div className="filters-container">
+      <div className="filters">
+        {filters.map((f) => (
+          <Filter filter={f} />
+        ))}
+      </div>
       <select
         name="cars"
         id="cars"
