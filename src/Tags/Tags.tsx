@@ -13,8 +13,8 @@ export const Tags = ({ tags }: { tags: TagType[] }) => {
         justifyContent: "center",
       }}
     >
-      {tags.map((obj) => (
-        <Tag tag={obj} />
+      {tags.map((tag) => (
+        <Tag key={tag.id} tag={tag} />
       ))}
     </div>
   );

@@ -20,8 +20,8 @@ export const Recipes = ({}) => {
           maxWidth: "800px",
         }}
       >
-        {recipes.map((obj) => (
-          <Recipe recipe={obj} />
+        {recipes.map((recipe, recipeIndex) => (
+          <Recipe key={`recipe_${recipeIndex}`} recipe={recipe} />
         ))}
       </div>
     </div>
