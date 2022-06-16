@@ -14,6 +14,8 @@ import {
   salad,
   cucumber,
   feta,
+  orangeJuice,
+  milk,
 } from "../Ingredients/IngredientData";
 
 import {
@@ -26,6 +28,7 @@ import {
   appetizer,
   autumn,
   dessert,
+  glutenFree,
   summer,
   vegan,
   winter,
@@ -95,7 +98,26 @@ const waldorfSalad: RecipeType = {
     },
     { ingredient: feta, quantity: 150, unit: "g" },
   ],
-  tags: [appetizer, summer, vegan],
+  tags: [appetizer, summer, vegan, glutenFree],
+};
+
+const crepeSuzette: RecipeType = {
+  nom: "Crêpe suzette",
+  description: "Une crépe classique aux zestes d'orange et rhum",
+  imageURL:
+    "https://www.countryandtownhouse.com/wp-content/uploads/2022/02/Le-Pont-de-la-Tour-pancake-recipe.jpg",
+  ingredients: [butter, flour, egg, orangeJuice, milk],
+  ingredientsWithQuantity: [
+    { ingredient: butter, quantity: 2, unit: "tbsp" },
+    {
+      ingredient: flour,
+      quantity: 500,
+      unit: "g",
+    },
+    { ingredient: orangeJuice, quantity: 50, unit: "ml" },
+    { ingredient: milk, quantity: 200, unit: "ml" },
+  ],
+  tags: [dessert],
 };
 
 export const allRecipes: ListOfRecipes = [
@@ -103,4 +125,5 @@ export const allRecipes: ListOfRecipes = [
   fondantChocolat,
   pearPie,
   waldorfSalad,
+  crepeSuzette,
 ];

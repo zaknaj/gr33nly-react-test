@@ -72,6 +72,19 @@ export const cucumber: IngredientType = {
   unit: "unit",
 };
 
+export const orangeJuice: IngredientType = {
+  name: "jus d'orange",
+  prefix: "de",
+  type: "fruit",
+  unit: "cl",
+};
+
+export const milk: IngredientType = {
+  name: "lait",
+  prefix: "de",
+  unit: "cl",
+};
+
 export const ingredientsList = [
   chocolate,
   sugar,
@@ -85,4 +98,6 @@ export const ingredientsList = [
   salad,
   feta,
   cucumber,
+  orangeJuice,
+  milk,
 ];

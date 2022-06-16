@@ -60,6 +60,16 @@ export const winter: TagType = {
   color: "lightblue",
 };
 
+export const glutenFree: TagType = {
+  id: "glutenFree",
+  name: {
+    fr: "Sans gluten",
+    en: "Gluten free",
+  },
+  type: "diet",
+  color: "lightgray",
+};
+
 export const tagList: TagType[] = [
   summer,
   winter,
@@ -67,4 +77,5 @@ export const tagList: TagType[] = [
   appetizer,
   autumn,
   vegan,
+  glutenFree,
 ];

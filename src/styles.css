@@ -178,6 +178,8 @@ body {
   display: inline-block;
   padding: 4px 8px;
   margin-right: 6px;
+  margin-bottom: 6px;
+
   border-radius: 100px;
   cursor: pointer;
   border: 2px solid transparent;
