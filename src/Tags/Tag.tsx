@@ -6,6 +6,10 @@ export const Tag = ({ tag }: { tag: TagType }) => {
   const toggleFilter = useStore((store) => store.toggleFilter);
   return (
     <div
+      className="tag"
+      style={{
+        borderColor: tag.color,
+      }}
       onClick={() =>
         toggleFilter({
           type: FilterTypesType.Tag,

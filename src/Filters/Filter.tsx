@@ -12,6 +12,10 @@ export const Filter = ({ filter }: { filter: FilterType }) => {
   return (
     <div
       className="filter"
+      style={{
+        borderColor:
+          filter.type === FilterTypesType.Tag ? filter.value.color : "white",
+      }}
       key={getFilterIdentifier(filter)}
       onClick={() => toggleFilter(filter)}
     >

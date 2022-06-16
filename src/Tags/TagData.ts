@@ -7,7 +7,7 @@ export const summer: TagType = {
     en: "summer",
   },
   type: "saison",
-  color: "yellow",
+  color: "gold",
 };
 
 export const vegan: TagType = {
@@ -17,7 +17,7 @@ export const vegan: TagType = {
     en: "vegan",
   },
   type: "diet",
-  color: "green",
+  color: "lightgreen",
 };
 
 export const appetizer: TagType = {
@@ -27,7 +27,7 @@ export const appetizer: TagType = {
     en: "appetizer",
   },
   type: "plateType",
-  color: "purple",
+  color: "#ebc9fb",
 };
 
 export const dessert: TagType = {
@@ -37,7 +37,7 @@ export const dessert: TagType = {
     en: "appetizer",
   },
   type: "plateType",
-  color: "#e320bd",
+  color: "rgb(255 190 242)",
 };
 
 export const autumn: TagType = {
@@ -47,7 +47,7 @@ export const autumn: TagType = {
     en: "autumn",
   },
   type: "saison",
-  color: "orange",
+  color: "#ffd07b",
 };
 
 export const winter: TagType = {
@@ -57,7 +57,7 @@ export const winter: TagType = {
     en: "winter",
   },
   type: "saison",
-  color: "blue",
+  color: "lightblue",
 };
 
 export const tagList: TagType[] = [
