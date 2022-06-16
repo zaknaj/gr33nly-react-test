@@ -11,6 +11,7 @@ type StateType = {
   filters: FilterType[];
   toggleFilter: (filter: FilterType) => void;
   clearFilters: () => void;
+  toggleFilterLogic: (filter: FilterType) => void;
 };
 
 export const getFilterIdentifier = (filter: FilterType) => {
@@ -36,6 +37,21 @@ export const useStore = create<StateType>((set) => ({
       return { filters: [...state.filters, filter] };
     }),
   clearFilters: () => set({ filters: [] }),
+  toggleFilterLogic: (filter: FilterType) =>
+    set((state) => {
+      const filterIndex = state.filters.findIndex(
+        (f) => getFilterIdentifier(filter) === getFilterIdentifier(f)
+      );
+      if (filterIndex !== -1) {
+        const filters = [...state.filters];
+        filters[filterIndex].logic =
+          filters[filterIndex].logic === FilterLogicType.Include
+            ? FilterLogicType.Exclude
+            : FilterLogicType.Include;
+        return { filters };
+      }
+      return {};
+    }),
 }));
 
 const getFilteredRecipes = (filters: FilterType[]) => {

@@ -10,16 +10,16 @@ const getFilterLabel = (f: FilterType) => {
 
 export const Filters = () => {
   const filters = useStore((store) => store.filters);
-  const toggleFitler = useStore((store) => store.toggleFilter);
+  const toggleFilter = useStore((store) => store.toggleFilter);
+  const toggleFilterLogic = useStore((store) => store.toggleFilterLogic);
 
   const handleSelectedFilter = (filterString: string) => {
     let [type, val] = filterString.split("__");
 
-    console.log(type, val);
     if (type === FilterTypesType.Tag) {
       const value = tagList.find((tag) => tag.id === val);
       value &&
-        toggleFitler({
+        toggleFilter({
           type: FilterTypesType.Tag,
           logic: FilterLogicType.Include,
           value,
@@ -29,7 +29,7 @@ export const Filters = () => {
         (ingredient) => ingredient.name === val
       );
       value &&
-        toggleFitler({
+        toggleFilter({
           type: FilterTypesType.Ingredient,
           logic: FilterLogicType.Include,
           value,
@@ -65,17 +65,27 @@ export const Filters = () => {
     <div>
       <h2>filtres</h2>
       {filters.map((f) => (
-        <div key={getFilterIdentifier(f)} onClick={() => toggleFitler(f)}>
-          {getFilterLabel(f)}
+        <div className="filter" key={getFilterIdentifier(f)}>
+          <button onClick={() => toggleFilterLogic(f)}>
+            {f.logic === FilterLogicType.Include ? "✅" : "❌"}
+          </button>
+          <div onClick={() => toggleFilter(f)}>{getFilterLabel(f)}</div>
         </div>
       ))}
       <select
         name="cars"
         id="cars"
         onChange={(e) => {
-          handleSelectedFilter(e.target.value);
+          if (e.target.value) {
+            handleSelectedFilter(e.target.value);
+            e.target.value = "";
+          }
         }}
+        defaultValue=""
       >
+        <option defaultChecked disabled value="">
+          Filtrer par ...
+        </option>
         <optgroup label="Filtrer par tag">
           {remainingTags.map((tag) => (
             <option key={tag.id} value={`${FilterTypesType.Tag}__${tag.id}`}>
