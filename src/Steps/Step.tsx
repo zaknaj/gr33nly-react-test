@@ -1,26 +1,19 @@
+import { useState } from "react";
 import IngredientsWithQuantity from "../Ingredients/IngredientsWithQuantity";
 import { StepType } from "./StepType";
 
 export const Step = ({ etape }: { etape: StepType }) => {
+  const [checked, setChecked] = useState(false);
+
   return (
     <div
-      style={{
-        backgroundColor: "thistle",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        textAlign: "left",
-        padding: "10px",
-      }}
+      className={`step ${checked ? "checked" : ""}`}
+      onClick={() => setChecked((prev) => !prev)}
     >
       <div>
         {etape.order}. {etape.description}
       </div>
-      <div
-        style={{
-          padding: "10px",
-        }}
-      >
+      <div>
         {etape.ingredients && (
           <IngredientsWithQuantity
             ingredientsWithQuantity={etape.ingredients}

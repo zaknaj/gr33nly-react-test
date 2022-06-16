@@ -5,94 +5,52 @@ import { useState } from "react";
 import { Tags } from "../Tags/Tags";
 
 export const Recipe = ({ recipe }: { recipe: RecipeType }) => {
-  const [showSteps, setShowSteps] = useState<Boolean>(false);
   const [showIngredients, setShowIngredients] = useState<boolean>(false);
+  const [showSteps, setShowSteps] = useState<Boolean>(false);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        padding: "10px",
-        boxShadow: "5px 5px 7px 2px rgba(0,0,0,0.76)",
-        marginTop: "20px",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-evenly",
-          height: "200px",
-          width: "70%",
-          backgroundImage: `url(${recipe.imageURL})`,
-          backgroundSize: "cover",
-        }}
-      ></div>
-      <div
-        style={{
-          padding: "10px",
-          backgroundColor: "lightblue",
-          width: "100%",
-        }}
-      >
-        <h2>Nom de la recette: {recipe.nom}</h2>
-        <div
-          style={{
-            padding: "10px",
-          }}
-        >
-          {recipe.description}
+    <div className="recipe">
+      <div>
+        <img src={recipe.imageURL} />
+        <div className="recipe-info">
+          <div className="recipe-title">{recipe.nom}</div>
+          <div className="recipe-description">{recipe.description}</div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+      </div>
+      <div>
+        <div className="recipe-content">
           <Tags tags={recipe.tags} />
-        </div>
-        <div
-          style={{
-            backgroundColor: "blanchedalmond",
-            padding: "10px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-          }}
-        >
-          Ingrédients:
-          <button onClick={() => setShowIngredients(!showIngredients)}>
-            {showIngredients ? "Masquer" : "Afficher"}
-          </button>
-          {showIngredients && (
-            <IngredientsWithQuantity
-              ingredientsWithQuantity={recipe.ingredientsWithQuantity}
-            />
-          )}
-        </div>
-        <div
-          style={{
-            padding: "10px",
-            display: "flex",
-            flexDirection: "column",
-            alignContent: "flex-start",
-            alignItems: "flex-start",
-          }}
-        >
-          <div
-            style={{
-              padding: "10px",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            Etapes de la recette:
-            <button onClick={() => setShowSteps(!showSteps)}>
-              {showSteps ? "Masquer" : "Afficher"}
-            </button>
+          <div className="section">
+            <div
+              className="section-label"
+              onClick={() => setShowIngredients((prev) => !prev)}
+            >
+              Ingrédients
+            </div>
+            {showIngredients && (
+              <div className="section-content">
+                <IngredientsWithQuantity
+                  ingredientsWithQuantity={recipe.ingredientsWithQuantity}
+                />
+              </div>
+            )}
           </div>
-          {recipe.etapes && showSteps && <Steps steps={recipe.etapes} />}
+          {recipe.etapes && (
+            <div className="section">
+              <div
+                className="section-label"
+                onClick={() => setShowSteps((prev) => !prev)}
+              >
+                Etapes de la recette
+              </div>
+
+              {showSteps && (
+                <div className="section-content">
+                  <Steps steps={recipe.etapes} />
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
