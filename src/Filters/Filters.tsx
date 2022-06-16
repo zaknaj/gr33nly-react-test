@@ -47,11 +47,10 @@ export const Filters = () => {
 
   // only show tags that are not already in the filter
   const remainingTags = useMemo(() => {
-    return tagList.filter((ingredient) => {
+    return tagList.filter((tag) => {
       return !filters.find((filter) => {
         return (
-          filter.type === FilterTypesType.Tag &&
-          filter.value.id === ingredient.id
+          filter.type === FilterTypesType.Tag && filter.value.id === tag.id
         );
       });
     });

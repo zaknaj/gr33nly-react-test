@@ -27,7 +27,7 @@ export const appetizer: TagType = {
     en: "appetizer",
   },
   type: "plateType",
-  color: "#ebc9fb",
+  color: "#ff9999",
 };
 
 export const dessert: TagType = {
@@ -47,7 +47,7 @@ export const autumn: TagType = {
     en: "autumn",
   },
   type: "saison",
-  color: "#ffd07b",
+  color: "orange",
 };
 
 export const winter: TagType = {
